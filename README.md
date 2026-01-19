@@ -1,10 +1,10 @@
-# SkillSync
+# skill-sync
 
 Install AI agent skills once, use them in any project, across any provider.
 
 ## The Problem
 
-When using AI coding assistants like Cursor, Claude, or OpenCode, each expects skills in different directories. Without SkillSync:
+When using AI coding assistants like Cursor, Claude, or OpenCode, each expects skills in different directories. Without skill-sync:
 
 - You copy the same skills into every project
 - Skills get out of sync across projects
@@ -13,41 +13,41 @@ When using AI coding assistants like Cursor, Claude, or OpenCode, each expects s
 
 ## The Solution
 
-SkillSync downloads skills once to a global store and creates symlinks to your projects. One copy, used everywhere, updated in one place.
+skill-sync downloads skills once to a global store and creates symlinks to your projects. One copy, used everywhere, updated in one place.
 
 ## Install
 
 ```bash
-npm install -g skillsync
+npm install -g skill-sync
 ```
 
 ## Quick Start
 
 ```bash
 cd my-project
-skillsync init                              # Create .skillsync.yaml
-skillsync install vercel-labs/agent-skills  # Download skill + link to providers
+sks init                              # Create .skillsync.yaml
+sks install vercel-labs/agent-skills  # Download skill + link to providers
 ```
 
 In another project that needs the same skill:
 
 ```bash
 cd another-project
-skillsync init
-skillsync install                           # Select from global store (no download)
+sks init
+sks install                           # Select from global store (no download)
 ```
 
 ## Commands
 
-| Command                      | Description                                                       |
-| ---------------------------- | ----------------------------------------------------------------- |
-| `skillsync init`             | Create `.skillsync.yaml` config file in the current project       |
-| `skillsync install <source>` | Download skill via `npx add-skill` and link to selected providers |
-| `skillsync install`          | Browse skills already in global store and link to providers       |
-| `skillsync update`           | Re-fetch all configured skills from their sources                 |
-| `skillsync update <skill>`   | Re-fetch a specific skill                                         |
-| `skillsync sync`             | Recreate all symlinks (useful after cloning a repo)               |
-| `skillsync list`             | Show configured skills and their symlink status                   |
+| Command                | Description                                                       |
+| ---------------------- | ----------------------------------------------------------------- |
+| `sks init`             | Create `.skillsync.yaml` config file in the current project       |
+| `sks install <source>` | Download skill via `npx add-skill` and link to selected providers |
+| `sks install`          | Browse skills already in global store and link to providers       |
+| `sks update`           | Re-fetch all configured skills from their sources                 |
+| `sks update <skill>`   | Re-fetch a specific skill                                         |
+| `sks sync`             | Recreate all symlinks (useful after cloning a repo)               |
+| `sks list`             | Show configured skills and their symlink status                   |
 
 ## How It Works
 
@@ -66,7 +66,7 @@ project-b/
 └── .claude/skills/react-best-practices  → symlink to global store
 ```
 
-Both projects share the same skill files. Run `skillsync update` once, and all projects get the latest version automatically.
+Both projects share the same skill files. Run `sks update` once, and all projects get the latest version automatically.
 
 ## Supported Providers
 
@@ -98,15 +98,15 @@ skills:
       - claude
 ```
 
-Commit this file so teammates can run `skillsync sync` to set up their environment.
+Commit this file so teammates can run `sks sync` to set up their environment.
 
 ## Workflow
 
 **First time setup:**
 
 ```bash
-skillsync init
-skillsync install vercel-labs/agent-skills
+sks init
+sks install vercel-labs/agent-skills
 # → Downloads to ~/.skillsync/skills/
 # → Prompts: select providers
 # → Creates symlinks
@@ -115,8 +115,8 @@ skillsync install vercel-labs/agent-skills
 **New project, same skills:**
 
 ```bash
-skillsync init
-skillsync install
+sks init
+sks install
 # → Shows skills in global store
 # → Select what you need
 # → No download, just symlinks
@@ -125,7 +125,7 @@ skillsync install
 **Keep skills updated:**
 
 ```bash
-skillsync update
+sks update
 # → Re-runs add-skill for each source
 # → All projects automatically updated via symlinks
 ```
@@ -134,6 +134,6 @@ skillsync update
 
 ```bash
 git clone repo && cd repo
-skillsync sync
+sks sync
 # → Creates symlinks based on config
 ```

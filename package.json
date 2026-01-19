@@ -1,9 +1,9 @@
 {
-  "name": "skillsync",
+  "name": "skill-sync",
   "version": "0.1.0",
   "type": "module",
   "bin": {
-    "skillsync": "./dist/index.js"
+    "sks": "./dist/index.js"
   },
   "scripts": {
     "build": "tsc",

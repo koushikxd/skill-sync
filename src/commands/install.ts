@@ -70,7 +70,7 @@ async function installFromGlobalStore(projectDir: string): Promise<void> {
 
 	if (globalSkills.length === 0) {
 		console.log(chalk.yellow("No skills in global store"));
-		console.log(chalk.dim("Run: skillsync install <source> to add skills"));
+		console.log(chalk.dim("Run: sks install <source> to add skills"));
 		return;
 	}
 

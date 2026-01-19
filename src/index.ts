@@ -10,7 +10,7 @@ import { updateCommand } from "./commands/update.js";
 const program = new Command();
 
 program
-	.name("skillsync")
+	.name("sks")
 	.description("Sync AI agent skills across multiple providers using symlinks")
 	.version("0.1.0");
 
