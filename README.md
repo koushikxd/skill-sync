@@ -18,7 +18,7 @@ skill-sync downloads skills once to a global store and creates symlinks to your 
 ## Install
 
 ```bash
-npm install -g skill-sync
+npm install -g skillsync-cli
 ```
 
 ## Quick Start
